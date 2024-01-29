@@ -99,10 +99,8 @@ RUN cd /frr \
     && install -m 644 tools/frr.service /etc/systemd/system/frr.service 
     # && systemctl enable frr
 COPY resources/daemons /etc/frr/daemons
-RUN echo " \ 
-    log file /var/log/frr/sqsq_ospfd.log \ 
-    log record-priority \ 
-    " >> /etc/frr/frr.conf \ 
+RUN echo "log file /var/log/frr/sqsq_ospfd.log" >> /etc/frr/frr.conf \
+    && echo "log record-priority" >> /etc/frr/frr.conf \
     && echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf && sysctl -p
 
 # install libnl

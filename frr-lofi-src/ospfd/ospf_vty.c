@@ -253,7 +253,7 @@ DEFUN (
 	// get arguments
 	char *n_str = NULL;
 
-	argv_find(argv, argc, "(1-65535)", &idx);
+	argv_find(argv, argc, "(0-16)", &idx);
 	n_str = argv[idx]->arg;
 	n = strtol(n_str, NULL, 10);
 
